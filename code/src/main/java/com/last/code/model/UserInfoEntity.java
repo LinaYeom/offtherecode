@@ -5,8 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
@@ -15,4 +14,15 @@ import javax.persistence.Table;
 @Entity
 @Table(name="userinfo")
 public class UserInfoEntity {
+
+    @Id
+    @OneToOne
+    @JoinColumn(name = "user_pno")
+    private UserEntity userEntity;
+    private String userinfo_lang;
+    private String userinfo_pofol;
+    private String userinfo_photo;
+    private String userinfo_other;
+
+
 }
